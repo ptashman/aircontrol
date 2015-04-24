@@ -1,0 +1,23 @@
+<h1>Listing airqueues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airqueues.each do |airqueue| %>
+      <tr>
+        <td><%= link_to 'Show', airqueue %></td>
+        <td><%= link_to 'Edit', edit_airqueue_path(airqueue) %></td>
+        <td><%= link_to 'Destroy', airqueue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Airqueue', new_airqueue_path %>
