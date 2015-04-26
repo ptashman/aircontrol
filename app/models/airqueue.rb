@@ -2,8 +2,11 @@ class Airqueue < ActiveRecord::Base
   has_many :aircrafts
 
   def dequeue_one
-    sorted_aircrafts.last.dequeue
+    sorted_aircrafts.first.dequeue
+    reload
   end
+
+private
 
   def sorted_aircrafts
     by_category = aircrafts.sort { |x,y| x.rating_for(:category) <=> y.rating_for(:category) }
