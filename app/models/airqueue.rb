@@ -2,7 +2,7 @@ class Airqueue < ActiveRecord::Base
   has_many :aircrafts
 
   def dequeue_one
-    sorted_aircrafts.first.dequeue
+    sorted_aircrafts.first.try(:dequeue)
     reload
   end
 

@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
+<%= form_for @aircraft, :url => url_for(:controller => 'aircrafts', :action => 'enqueue') do |f| %>
+  <%= f.label :airqueue_id %>
+  <%= f.text_field :airqueue_id %>
+  <p>
+  <%= f.submit %>
+<% end %>
 
 <%= link_to 'Edit', edit_aircraft_path(@aircraft) %> |
 <%= link_to 'Back', aircrafts_path %>

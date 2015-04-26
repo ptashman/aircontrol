@@ -1,5 +1,5 @@
 class AircraftsController < ApplicationController
-  before_action :set_aircraft, only: [:show, :edit, :update, :destroy]
+  before_action :set_aircraft, only: [:show, :edit, :update, :destroy, :enqueue]
 
   # GET /aircrafts
   # GET /aircrafts.json
@@ -61,6 +61,13 @@ class AircraftsController < ApplicationController
     end
   end
 
+  def enqueue
+    if @aircraft.enqueue(params[:aircraft][:airqueue_id].to_i)
+      flash[:notice] = "Aircraft was successfully enqueued."
+    end
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_aircraft
@@ -69,6 +76,7 @@ class AircraftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aircraft_params
-      params[:aircraft]
+      params.require(:aircraft).permit(:size, :category)
+      #params[:aircraft]
     end
 end

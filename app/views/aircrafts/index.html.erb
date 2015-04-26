@@ -10,6 +10,7 @@
   <tbody>
     <% @aircrafts.each do |aircraft| %>
       <tr>
+        <td><%= aircraft.id %></td>
         <td><%= link_to 'Show', aircraft %></td>
         <td><%= link_to 'Edit', edit_aircraft_path(aircraft) %></td>
         <td><%= link_to 'Destroy', aircraft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,3 +22,6 @@
 <br>
 
 <%= link_to 'New Aircraft', new_aircraft_path %>
+<br>
+<br>
+<%= link_to 'Airqueues', airqueues_path %>

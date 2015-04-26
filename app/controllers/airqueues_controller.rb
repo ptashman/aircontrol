@@ -61,6 +61,12 @@ class AirqueuesController < ApplicationController
     end
   end
 
+  def dequeue_one
+    @airqueue = Airqueue.find(params[:airqueue_id])
+    @airqueue.dequeue_one
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_airqueue
