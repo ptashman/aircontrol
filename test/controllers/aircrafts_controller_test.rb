@@ -16,14 +16,6 @@ class AircraftsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create aircraft" do
-    assert_difference('Aircraft.count') do
-      post :create, aircraft: {  }
-    end
-
-    assert_redirected_to aircraft_path(assigns(:aircraft))
-  end
-
   test "should show aircraft" do
     get :show, id: @aircraft
     assert_response :success
@@ -32,11 +24,6 @@ class AircraftsControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, id: @aircraft
     assert_response :success
-  end
-
-  test "should update aircraft" do
-    patch :update, id: @aircraft, aircraft: {  }
-    assert_redirected_to aircraft_path(assigns(:aircraft))
   end
 
   test "should destroy aircraft" do
